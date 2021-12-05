@@ -1,0 +1,9 @@
+mixin svg(name)
+  svg
+    use(xlink:href=`/img/sprites.svg#${name}`)
+
+mixin picture(name, path='/img/', type=['webp'])
+  picture
+    each val in type
+      source(srcset=path + "/" + name + "." + val type="image/" + val)
+    img(src=path + "/" + name + ".jpg" alt=name)
